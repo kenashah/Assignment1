@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void NewCounterButtonClicked(View view) {
+    public void newCounterButtonClicked(View view) {
         // Do something in response to button
         // display the Counter fields, which will take the inputs to create a new counter
         Intent intent = new Intent(this, CreateCounter.class);
