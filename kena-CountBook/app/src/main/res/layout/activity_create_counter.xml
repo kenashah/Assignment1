@@ -8,7 +8,7 @@
     tools:context="com.example.kena_countbook.CreateCounter">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/cancelbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
@@ -19,7 +19,7 @@
         android:layout_marginBottom="47dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/okbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
@@ -30,7 +30,7 @@
         android:layout_marginBottom="47dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/current_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -78,7 +78,7 @@
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/initial_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

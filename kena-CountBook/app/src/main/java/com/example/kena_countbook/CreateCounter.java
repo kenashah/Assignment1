@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CreateCounter extends AppCompatActivity {
@@ -17,17 +19,17 @@ public class CreateCounter extends AppCompatActivity {
     Date date_value;
     String comment_value;
 
+    ArrayList<Counter> counter = new ArrayList<Counter>();
+
     EditText name;
     EditText current_value;
     EditText initial_value;
     EditText date;
     EditText comment;
 
-    SharedPreferences nameSharedPreferences;
-    SharedPreferences current_valueSharedPreferences;
-    SharedPreferences initial_valueSharedPreferences;
-    SharedPreferences dateSharedPreferences;
-    SharedPreferences commentSharedPreferences;
+    SharedPreferences sharedPreferences;
+    public static final String myPreferences = "myPrefs";
+
     Button okButton;
     Button cancelButton;
 
@@ -38,51 +40,59 @@ public class CreateCounter extends AppCompatActivity {
         setContentView(R.layout.activity_create_counter);
 
         defineValues();
-        loadValues();
-        buttonHandler();
+        buttonHandler(); // invoking the button handler causes app to crash
     }
 
     public void defineValues() {
-        nameSharedPreferences = getSharedPreferences("name", Context.MODE_PRIVATE);
-        current_valueSharedPreferences = getSharedPreferences("current_value", Context.MODE_PRIVATE);
-        initial_valueSharedPreferences = getSharedPreferences("initial_value", Context.MODE_PRIVATE);
-        dateSharedPreferences = getSharedPreferences("date", Context.MODE_PRIVATE);
-        commentSharedPreferences = getSharedPreferences("comment", Context.MODE_PRIVATE);
-        name = new EditText(this);
-        current_value = new EditText(this);
-        initial_value = new EditText(this);
-        date = new EditText(this);
-        comment = new EditText(this);
-    }
-
-    public void loadValues() {
-        nameSharedPreferences = getSharedPreferences("name", Context.MODE_PRIVATE);
-        current_valueSharedPreferences = getSharedPreferences("current_value", Context.MODE_PRIVATE);
-        initial_valueSharedPreferences = getSharedPreferences("initial_value", Context.MODE_PRIVATE);
-        dateSharedPreferences = getSharedPreferences("date", Context.MODE_PRIVATE);
-        commentSharedPreferences = getSharedPreferences("comment", Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences(myPreferences, Context.MODE_PRIVATE);
+        okButton = (Button) findViewById(R.id.okbutton);
+        cancelButton = (Button) findViewById(R.id.cancelbutton);
+        name = (EditText) findViewById(R.id.name);
+        current_value = (EditText) findViewById(R.id.current_value);
+        initial_value = (EditText) findViewById(R.id.initial_value);
+        date = (EditText) findViewById(R.id.date);
+        comment = (EditText) findViewById(R.id.comment);
     }
 
     public void buttonHandler() {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(name.getText().toString().length() == 0) {
+                if((name.getText().toString().length() == 0)
+                        || (initial_value.getText().toString().length() == 0))  {
                     name.setError("Name is a required field.");
-                } else if(initial_value.getText().toString().length() == 0) {
                     initial_value.setError("Initial value is a required field.");
                 }
-                commitToSharedPreferences();
+                String n = name.getText().toString();
+                Integer c = current_value.getText();
+                Integer i = initial_value.getText().toString();
+                String d = date.getText().toString();
+                String com = comment.getText().toString();
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putString("name", n);
+                editor.putInt("current_value", c);
+                editor.putInt("initial_value", i);
+                editor.putString("date", d);
+                editor.putString("comment", com);
+                editor.apply();
+
+                Date actual_date = new SimpleDateFormat("") // finish this
+                Counter new_counter = new Counter(n, c, i, d, com); // fix this 
+                counter.add()
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // implement a way to go back to home screen when CANCEL button is pressed
             }
         });
     }
 
-    public void commitToSharedPreferences() {
-        nameSharedPreferences.edit().putString("name", name_value).apply();
-        current_valueSharedPreferences.edit().putInt("current_value", current).apply();
-        initial_valueSharedPreferences.edit().putInt("initial_value", initial).apply();
 
-    }
 
 
 

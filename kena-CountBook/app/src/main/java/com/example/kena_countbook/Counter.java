@@ -7,11 +7,18 @@ import java.util.Date;
  */
 
 public class Counter {
-    private String name, comment;
+    private String name;
+    private Integer current_value;
+    private Integer initial_value;
     private Date date;
-    private Integer current_value, initial_value;
+    private String comment;
 
-    public Counter() {
-
+    public Counter(String name, Integer initial_value, Integer current_value,
+                   Date date, String comment) {
+        this.name = name;
+        this.current_value = current_value;
+        this.initial_value = initial_value;
+        this.date = date;
+        this.comment = comment;
     }
 }
