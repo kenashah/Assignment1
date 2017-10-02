@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.kena_countbook.MESSAGE";
@@ -16,10 +15,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void newCounterButtonClicked(View view) {
-        // Do something in response to button
-        // display the Counter fields, which will take the inputs to create a new counter
+    public void createCounterButtonClicked(View view) {
         Intent intent = new Intent(this, CreateCounter.class);
+        startActivity(intent);
+    }
+
+    public void counterListButtonClicked(View view) {
+        Intent intent = new Intent(this, CounterList.class);
         startActivity(intent);
     }
 }
