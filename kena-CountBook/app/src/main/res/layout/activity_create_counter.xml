@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     tools:context="com.example.kena_countbook.CreateCounter">
 
+    <ListView
+        android:id="@+id/oldCounterList"
+        android:layout_width="fill_parent"
+        android:layout_height="170dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+    </ListView>
+
     <Button
         android:id="@+id/okbutton"
         android:layout_width="wrap_content"
@@ -15,10 +31,10 @@
         android:textAlignment="center"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="43dp"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="269dp" />
 
     <EditText
         android:id="@+id/date"
@@ -33,7 +49,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="264dp"
+        android:layout_marginTop="164dp"
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
@@ -43,7 +59,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="7dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -53,7 +69,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/current_value"
+        android:id="@+id/currentValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -65,17 +81,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="99dp"
+        android:layout_marginTop="59dp"
         app:layout_constraintHorizontal_bias="0.503" />
 
     <EditText
-        android:id="@+id/initial_value"
+        android:id="@+id/initialValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="111dp"
         android:ems="10"
         android:hint="Initial Value"
         android:inputType="number"
@@ -91,7 +107,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="342dp"
+        android:layout_marginTop="219dp"
         android:ems="10"
         android:hint="Comment"
         android:inputType="text"
@@ -99,4 +115,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </android.support.constraint.ConstraintLayout>

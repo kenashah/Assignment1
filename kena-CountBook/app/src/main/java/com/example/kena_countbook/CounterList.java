@@ -13,40 +13,55 @@
 
 package com.example.kena_countbook;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
-import static com.example.kena_countbook.CreateCounter.*;
-
+/**
+ * Supposed to implement the different activity which shows the list of counters created.
+ */
 public class CounterList extends AppCompatActivity {
-    private ListView oldCountersList;
-    private Counter newCounter;
+    private ListView oldCounterList;
     private String name;
-    private Integer current_value;
-    private Integer initial_value;
+    private Integer currentValue;
+    private Integer initialValue;
     private Date date;
     private String comment;
 
+    private ArrayList<Counter> counterList;
+
+    /**
+     * Called when the activity is first created.
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_counter_list);
-
-        oldCountersList = (ListView) findViewById(R.id.listview);
     }
 
     public void displayCounters() {
-        name = newCounter.getName();
-        current_value = newCounter.getCurrent_value();
-        initial_value = newCounter.getInitial_value();
-        date = newCounter.getDate();
-        comment = newCounter.getComment();
-        
     }
-
 
 }

@@ -13,6 +13,7 @@
 
 package com.example.kena_countbook;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -29,6 +30,7 @@ public class Counter {
     private Integer initial_value;
     private Date date;
     private String comment;
+    private ArrayList<Counter> counterList;
 
     /**
      * Called when the class is used.
@@ -47,7 +49,7 @@ public class Counter {
         this.date = date;
         this.comment = comment;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -88,4 +90,8 @@ public class Counter {
         return comment;
     }
 
+    @Override
+    public String toString() {
+        return name + " | " + "Current Value: " + current_value.toString();
+    }
 }
